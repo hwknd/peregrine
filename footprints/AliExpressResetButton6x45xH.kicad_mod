@@ -1,0 +1,184 @@
+(footprint "AliExpressResetButton6x45xH"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "AliExpress Tactile Switch 6 x 4.5 x H")
+	(tags "Tactile Switch push button 6 x 4.5 x H")
+	(property "Reference" "SW1"
+		(at 0 -4 0)
+		(layer "F.SilkS")
+		(uuid "89b48849-f2db-4eb0-9eaa-7cb954e4444c")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Tactile_Switch"
+		(at 0 4.5 0)
+		(layer "F.Fab")
+		(uuid "f094733f-f7dc-4c92-821a-5005973e9876")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "e87d8467-9014-4238-b187-2c47f716a687")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "584861ce-35f0-4701-8f48-96bba581b9c8")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start -3 -3)
+		(end 3 -3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "15e48cb0-9ba4-415b-bd0c-ed8f61a9b9ac")
+	)
+	(fp_line
+		(start -3 3)
+		(end -3 -3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "2d955237-89e3-4d79-8001-0a351ea28df0")
+	)
+	(fp_line
+		(start 3 -3)
+		(end 3 3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b1e84cd3-ed62-438c-a9a5-201b1889ab36")
+	)
+	(fp_line
+		(start 3 3)
+		(end -3 3)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "265bef84-fa04-4b96-a9f8-53116a8bb7be")
+	)
+	(fp_text user "RST"
+		(at -2.325887 2.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "67c92bbb-8889-42c3-9837-96baa509e87b")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.12)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "GND"
+		(at 0.5 -1.5 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "6fd21fa8-b684-4f68-b492-e1c08e27716a")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.12)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "RST"
+		(at 0.634378 2.498582 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "abca41f6-a57c-4a8b-bb00-dcd2f5cb197d")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.12)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(fp_text user "GND"
+		(at -2.325887 -1.48599 0)
+		(unlocked yes)
+		(layer "F.SilkS")
+		(uuid "e8eee486-612d-4e67-8e56-8f243cea013a")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.12)
+				(bold yes)
+			)
+			(justify left bottom)
+		)
+	)
+	(pad "1" thru_hole circle
+		(at -3.25 -2.25)
+		(size 1.5 1.5)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "564bb302-099e-4a76-8168-015722090392")
+	)
+	(pad "2" thru_hole circle
+		(at 3.25 -2.25)
+		(size 1.5 1.5)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "2a8f650b-4e96-4e79-b6df-6c3974e8f9d5")
+	)
+	(pad "3" thru_hole circle
+		(at -3.25 2.25)
+		(size 1.5 1.5)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "bec9f854-8f00-4dfa-89af-2c6230733ab6")
+	)
+	(pad "4" thru_hole circle
+		(at 3.25 2.25)
+		(size 1.5 1.5)
+		(drill 0.8)
+		(layers "*.Cu" "*.Mask")
+		(remove_unused_layers no)
+		(uuid "21dfcfa4-3a75-46f8-88c2-51361c99f45c")
+	)
+	(embedded_fonts no)
+)

@@ -1,0 +1,153 @@
+# TODO: check if this indeed is a reversible design!
+# TODO PCB in KiCad, move reset button?
+# TODO Am I missing vital electrical components? (--)
+# TODO Add Through holes for mounting 
+
+
+# Mounting Holes
+      # holeTopLeft:
+      #   what: mountinghole
+      #   where:
+      #     ref: [matrix_outer_num]
+      #     shift: [0.5kx, -0.3ky]
+      # holeBottomLeft:
+      #   what: mountinghole
+      #   where:
+      #     ref: [matrix_outer_bottom]
+      #     shift: [0.5kx, -0.3ky]
+
+units:
+  # Proxy Spacing Variables
+  kx: cx
+  ky: cy
+  # Padding Variables
+  px: kx + 2
+  py: ky + 2
+  $default_width: cx
+  $default_height: cy
+
+# Split steno - to make the reversible board work the left side will just have some extra keys.
+points:
+  zones:
+    mainkeys:
+      # Fix placement on KiCAD sheet.
+      anchor:
+        shift: [100, -100]
+      columns:
+        one: 
+          key:
+            column_net: P7
+        two: 
+          key:
+            column_net: P6
+        three:
+          
+          key:
+            column_net: P5
+        four:
+          rows.bottom.skip: true
+          key:
+            column_net: P4
+        five:
+          rows.bottom.skip: true
+          key:
+            column_net: P3
+        six:
+          rows.bottom.skip: true
+          key:
+            column_net: P2
+      rows:
+        bottom:
+          row_net: P9
+        middle:
+          row_net: P8
+          shift: [0, 0.8ky]
+        top:
+          row_net: P16
+      key:
+        padding: 1ky
+        spread: 1kx
+     
+outlines:
+  raw:
+    - what: rectangle
+      where: true
+      bound: true
+      size: [2kx, 2ky]
+      fillet: 2
+  keys:
+    - what: rectangle
+      where: true
+      size: [1cx - 0.5, 1cy - 0.5] # Choc keycaps are 17.5 x 16.5
+      fillet: 2
+  board:
+    - what: polygon
+      operation: stack
+      points:
+        - ref: mainkeys_one_top
+          shift: [-38, 10]
+        - ref: mainkeys_six_top
+          shift: [10, 10]
+        - ref: mainkeys_six_middle
+          shift: [10, -10]
+        - ref: mainkeys_four_middle
+          shift: [-8, -10]
+        - ref: mainkeys_three_bottom
+          shift: [10, -9]
+        - ref: mainkeys_one_bottom
+          shift: [-38, -9]
+      fillet: 2
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+
+pcbs:
+  peregrine-lefty:
+    outlines:
+      main:
+        outline: board
+    footprints:
+      choc_hotswap:
+        what: choc
+        where: true
+        params:
+          keycaps: true
+          reverse: false
+          hotswap: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+      diode:
+        what: diode
+        where: true
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [0, -5]
+      promicro:
+        what: promicro 
+        where:
+          ref: mainkeys_one_top
+          shift: [-28, -9] 
+          rotate: -90
+      reset:
+        what: button
+        params:
+          from: GND
+          to: RST
+        where:
+          ref: mainkeys_one_middle
+          shift: [-14,20]
+      trrs:
+        what: trrs
+        params:
+          reverse: false
+          A: GND
+          B: GND
+          C: P6
+          D: VCC
+        where:
+          ref: mainkeys_one_middle
+          shift: [-38, -14]
+          rotate:  90
